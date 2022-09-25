@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="toggle__mode">
+        <input type="checkbox" id="toggle" />
+        <label class="toggle" for="toggle">
+          <i class="bx bx-moon"></i>
+          <i class="bx bxs-sun"></i>
+          <span class="ball"></span>
+        </label>
+      </section>
+
+      <section class="clock">
+        <div class="line hour"></div>
+        <div class="line minute"></div>
+        <div class="line second"></div>
+        <span style="--rotate: 1" class="num"><b>1</b></span>
+        <span style="--rotate: 2" class="num"><b>2</b></span>
+        <span style="--rotate: 3" class="num"><b>3</b></span>
+        <span style="--rotate: 4" class="num"><b>4</b></span>
+        <span style="--rotate: 5" class="num"><b>5</b></span>
+        <span style="--rotate: 6" class="num"><b>6</b></span>
+        <span style="--rotate: 7" class="num"><b>7</b></span>
+        <span style="--rotate: 8" class="num"><b>8</b></span>
+        <span style="--rotate: 9" class="num"><b>9</b></span>
+        <span style="--rotate: 10" class="num"><b>10</b></span>
+        <span style="--rotate: 11" class="num"><b>11</b></span>
+        <span style="--rotate: 12" class="num"><b>12</b></span>
+        <div class="date"></div>
+      </section>
+
+      <section class="digital">
+        <span class="dig_hour">03</span> :
+        <span class="dig_min">30</span> :
+        <span class="dig_sec">44</span>
+        <span class="pm"></span>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
