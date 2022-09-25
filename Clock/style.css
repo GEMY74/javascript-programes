@@ -1,0 +1,241 @@
+:root {
+  --main-color: #e98b2c;
+  --dark: #1b1b22;
+  --dark-light: #32323a;
+  --white: #fff;
+  --white-light: #c8c8c8;
+  --moon-color: #fefcd7;
+  --sun-color: #f39c12;
+  --dark-shadow: 0 0 15px rgba(255, 255, 255, 0.05),
+    inset 0 -15px 15px rgba(0, 0, 0, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3),
+    inset 0 15px 15px rgba(0, 0, 0, 0.3);
+
+  --light-shadow: 0 0 15px rgba(0, 0, 0, 0.05),
+    inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3),
+    inset 0 15px 15px rgba(255, 255, 255, 0.3);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+}
+
+/* ===============  toggle mode styles ============== */
+.container {
+  background-color: var(--dark);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+input {
+  display: none;
+}
+
+.toggle {
+  position: relative;
+  width: 120px;
+  height: 60px;
+  background-color: var(--dark-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle i {
+  width: 50%;
+  line-height: 60px;
+  text-align: center;
+  font-size: 30px;
+  z-index: 1;
+}
+
+.bx-moon {
+  color: var(--moon-color);
+}
+
+.bxs-sun {
+  color: var(--sun-color);
+}
+
+.ball {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  margin: 7.5px;
+  border-radius: 50%;
+  background-color: var(--dark);
+  transition: all 0.3s ease-out;
+}
+
+input:checked + .toggle .ball {
+  background-color: var(--white);
+  transform: translateX(60px);
+}
+
+/* ============ clock styles ================= */
+.clock {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: var(--dark-light);
+  box-shadow: var(--dark-shadow);
+}
+
+.clock::after {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white-light);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.num {
+  font-size: 30px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(calc(30deg * var(--rotate)));
+  padding: 5px;
+}
+
+.num::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: var(--white-light);
+  width: 1px;
+  height: 5px;
+}
+
+.num b {
+  display: inline-block;
+  transform: rotate(calc(-30deg * var(--rotate)));
+}
+
+.line {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: bottom;
+  background-color: var(--white-light);
+  z-index: 10;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.line.hour {
+  width: 5px;
+  height: 60px;
+  background-color: var(--dark);
+  border-radius: 100% 100% 5px 5px;
+}
+
+.line.minute {
+  width: 6px;
+  height: 90px;
+  background-color: var(--dark);
+  border-radius: 100% 100% 5px 5px;
+}
+
+.line.second {
+  width: 3px;
+  height: 100px;
+  background-color: var(--main-color);
+}
+
+.date {
+  font-size: 10px;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  transform: translate(-50%, -50%);
+  color: var(--white-light);
+}
+
+/* ============= digital clock ============= */
+.digital {
+  margin-left: 30px;
+}
+
+.digital span {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 5px;
+  padding: 10px;
+  background-color: var(--dark-light);
+  color: var(--white);
+  box-shadow: var(--dark-shadow);
+}
+
+span.pm {
+  background: transparent;
+  color: var(--main-color);
+  font-size: 15px;
+  margin: -10px;
+  box-shadow: none;
+}
+
+/* =========== the light mode styles ============  */
+
+.container.light {
+  background-color: var(--white);
+}
+
+.container.light .toggle {
+  background-color: var(--white-light);
+}
+
+.container.light .clock {
+  background-color: var(--white-light);
+  box-shadow: var(--light-shadow);
+}
+
+.container.light .clock::after {
+  background-color: var(--dark-light);
+}
+
+.container.light .num::after {
+  background-color: var(--dark);
+}
+
+.container.light .date {
+  color: var(--dark);
+}
+
+.container.light .digital {
+  color: var(--dark);
+}
+
+.container.light .digital span {
+  background-color: var(--white-light);
+  color: var(--dark);
+  box-shadow: var(--light-shadow);
+}
+
+.container.light span.pm {
+  background: transparent;
+  color: var(--main-color);
+  box-shadow: none;
+}
